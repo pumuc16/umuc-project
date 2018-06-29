@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Restaurant Map App</title>
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.1/mapquest.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.1/mapquest.css" />
@@ -122,14 +122,14 @@ body {
                   <div class="slideHolder">
                     <div class="slidecontainer">
                         <p>Select Radius:</p>
-                        <input type="range" min="1" max="50" value="20" name="slideradius" id="slide">
-                         <span id="slide-radius">50</span> Km
+                        <input type="range" min="0.5" max="5.0" value="5.0" step="0.5" name="slideradius" id="slide">
+                         <span id="slide-radius">5.0</span> Km
                     </div>        
 
                     <div class="slidecontainer">
                         <p>Select Number:</p>
-                        <input type="range" min="1" max="50" value="20" name="slidenumber" id="slide">
-                         <span id="slide-number">50</span> restaurants
+                        <input type="range" min="1" max="15" value="15" name="slidenumber" id="slide">
+                         <span id="slide-number">15</span> restaurants
                     </div> 
                 </div>              
 
@@ -149,8 +149,8 @@ body {
             <div class="col-sm" id="result">
                 <div class="alert alert-primary" role="alert">
                     Results 
-                    <span id="number-restaurant-display"> 50 Restaurants</span>
-                    <span id="radius-restaurant-display"> 50 KM</span>
+                    <span id="number-restaurant-display"> 15 Restaurants</span>
+                    <span id="radius-restaurant-display"> 5 KM</span>
                 </div>
 
             </div>
@@ -258,7 +258,10 @@ body {
                                 size: 'sm'
                             }
                         }).addTo(map);
+
+
                     }
+                        L.circle([currentLat, currentLong], {radius: radiusRestaurants}).addTo(map);
 
                 }
             });
